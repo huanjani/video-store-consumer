@@ -25,7 +25,7 @@ class Search extends Component {
   onSubmit = (event) => {
     event.preventDefault();
 
-    axios.get(`${this.props.url}/${this.state.query}`)
+    axios.get(`${this.props.url}/search/${this.state.query}`)
       .then((response) => {
         this.setState({ movie: response.data });
       })
@@ -56,7 +56,6 @@ class Search extends Component {
             onChange={this.onInputChange}
             value={this.state.query}
           >
-            {this.state.query}
           </textarea>
         </div>
 

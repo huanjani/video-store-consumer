@@ -7,7 +7,7 @@ class App extends Component {
 
   render() {
     const BASE_URL = 'http://localhost:3000/'
-    
+
     return (
       <div className="App">
         <header className="App-header">
@@ -15,7 +15,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          <Search url={`${BASE_URL}/movies`} />
+          <Search url={`${BASE_URL}movies`} />
 
         </p>
       </div>
