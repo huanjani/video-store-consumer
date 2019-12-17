@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Search from './components/Search'
+import Library from './components/Library'
 
 class App extends Component {
 
@@ -14,10 +15,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          <Search url={`${BASE_URL}/movies`} />
-
-        </p>
+          <Search url={`${BASE_URL}movies`} />
+          <Library url={`${BASE_URL}`}/>
       </div>
     );
   }
