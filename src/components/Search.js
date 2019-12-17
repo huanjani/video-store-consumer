@@ -8,7 +8,7 @@ class Search extends Component {
     super();
 
     this.state = {
-      movie: [],
+      movies: [],
       query: '',
       error: '',
     };
@@ -31,7 +31,7 @@ class Search extends Component {
         response.data.map((movie) => {
 
         })
-        this.setState({ movie: response.data });
+        this.setState({ movies: response.data });
       })
       .catch((errors) => {
         this.setState({ error: errors.title });
@@ -39,7 +39,7 @@ class Search extends Component {
       });
 
       console.log(`errors: ${this.state.errors}`)
-      console.log(`movie: ${this.state.movie.title}`)
+      console.log(`movies: ${this.state.movies.title}`)
 
       this.setState({
         query: '',
@@ -73,7 +73,7 @@ class Search extends Component {
             onClick={this.onSubmit}
           />
         </form>
-        <SearchResults movieData={this.state.movie} />
+        <SearchResults movieData={this.state.movies} />
       </div>
     );
   }
