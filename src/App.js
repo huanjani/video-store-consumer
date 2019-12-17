@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Search from './components/Search'
 
 class App extends Component {
+
   render() {
+    const BASE_URL = 'http://localhost:3000/'
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -11,7 +15,8 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <Search url={`${BASE_URL}/movies`} />
+
         </p>
       </div>
     );
