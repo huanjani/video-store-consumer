@@ -12,6 +12,7 @@ const SearchResults = (props) => {
       </div>
       // <div key={movie.id} >
       //     <input type="radio" value="one" id="radio-one" class="form-radio" checked><label for="radio-one">{movie.title}</label></input>
+      // from https://tipue.com/blog/radio-checkbox/
       //     // Add more info about each movie (incl image?) so user can see which movie?
       // </div>
     )
