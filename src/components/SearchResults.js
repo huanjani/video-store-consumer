@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import './SearchResults.css';
+class SearchResults extends Component {
+  constructor(props) {
+    super();
 
+    this.state = {
+      error: '',
+    };
+  }
 
-const SearchResults = (props) => {
-  const { movieData } = props;
-  const getMovies = movieData.map((movie, i) => {
+  searchResultToLibrary(movie) {
+    axios.post(`${this.state.url}`, {
+      "title": movie.title,
+      "overview": movie.overview,
+      "release_date": movie.release_date,
+      "image_url": movie.image_url
+    })
+    .then((response) => {
+      })
+    .catch((errors) => {
+      this.setState({ error: errors.errors.title });
+      console.log(errors.title);
+    });
+    }
+render () {
+  const getMovies = this.props.movieData.map((movie, i) => {
     const listingColor = (i % 2 === 0) ? 'movie-card_one' : 'movie-card_two'
     return (
       <div key={i}
@@ -18,8 +39,8 @@ const SearchResults = (props) => {
             <p className="movie-card__content_overview">{movie.overview}</p>
             <p>Release Date: {movie.release_date}</p>
             <p>
-              <button type="button" className="movie-select">
-                Select
+              <button type="button" className="movie-select" onClick={this.searchResultToLibrary(movie)}>
+                Add to Rental Library
               </button>
             </p>
           </div>
@@ -29,13 +50,12 @@ const SearchResults = (props) => {
       })
 
     return (
-      <section>
-        <div>
-         {getMovies}
-        </div>
-      </section>
+      <div>
+        {getMovies}
+      </div>
     )
     }
+  }
 
 
 
