@@ -53,9 +53,7 @@ class Customers extends Component {
                 </p>
 
                 <p><button
-                type="button"
-                className="movie-select"
-          
+                  onClick={() => this.props.selectCustomerCallback(customer)}
                 >
                 Select Customer
                 </button>

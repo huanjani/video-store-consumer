@@ -40,11 +40,9 @@ class Library extends Component {
                 <p>Release Date: {movie.release_date}</p>
 
                 <p><button
-                type="button"
-                className="movie-select"
-          
+                onClick={() => this.props.selectMovieCallback(movie)}
                 >
-                Select
+                Select Movie
                 </button>
                 </p>
               </div>

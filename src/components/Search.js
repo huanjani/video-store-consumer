@@ -28,9 +28,6 @@ class Search extends Component {
 
     axios.get(`${this.props.url}/search/${this.state.query}`)
       .then((response) => {
-        response.data.map((movie) => {
-
-        })
         this.setState({ movies: response.data });
       })
       .catch((errors) => {
