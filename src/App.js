@@ -8,15 +8,17 @@ class App extends Component {
 
   render() {
     const BASE_URL = 'http://localhost:3000/'
-    
+
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
+        <p className="App-intro">
           <Search url={`${BASE_URL}movies`} />
-          <Library url={`${BASE_URL}`}/>
+
+        </p>
       </div>
     );
   }
