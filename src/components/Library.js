@@ -30,13 +30,13 @@ class Library extends Component {
           </div>
         )
       });
-  
+
     return (
       <section >
-      <div className="board">
+      <div>
         {getMovies}
       </div>
-      </section> 
+      </section>
     )
   }
 }
