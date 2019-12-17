@@ -21,7 +21,7 @@ class SearchResults extends Component {
     .then((response) => {
       })
     .catch((errors) => {
-      this.setState({ error: errors.errors.title });
+      this.setState({ error: errors.title });
       console.log(errors.title);
     });
     }
