@@ -65,26 +65,7 @@ class App extends Component {
     });
 }
 
-  nextCustomerPage = () => {
-  axios.get(`${this.state.baseUrl}/customers`, {
-    params: {
-      "sort": "name",
-      "p": this.state.currentPage + 1,
-      "n": 10
-    }})
 
-    .then((response) => {
-      this.setState({ 
-        customers: response.data,
-        currentPage: this.state.currentPage + 1,
-       });
-      console.log(this.state.customers)
-    })
-    .catch((error) => {
-      console.log(error)
-      this.setState({ error: error.errors });
-    });
-}
 
   render() {
     const BASE_URL = this.state.baseUrl;
