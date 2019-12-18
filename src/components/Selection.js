@@ -2,7 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Selection.css';
 
-const Selection = ({customer, movie}) => {
+const Selection = ({customer, movie, url}) => {
+  // const 
+
+  // addRental = () => {
+  //   axios.post(`${url}${movie.title}/check-out`, 
+  //   {"customer_id": customer.id, 
+  //   "movie": movie.title,
+  //   "due_date": })
+  //     .then((response) => {
+  //       console.log(response.data);
+
+  //     })
+  //     .catch((error) => {
+  //         console.log(error.errors.customer_id);
+
+  //     });
+  // }
 
     return (
       <div className="selection-box">

@@ -37,7 +37,7 @@ class App extends Component {
 
   render() {
     const BASE_URL = 'http://localhost:3000/'
-    const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} /> : ''
+    const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection url={BASE_URL} customer={this.state.currentCustomer} movie={this.state.currentMovie} /> : ''
 
     return (
     
