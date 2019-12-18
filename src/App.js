@@ -20,6 +20,8 @@ class App extends Component {
     this.state = {
       currentMovie: '',
       currentCustomer: '',
+      customerPage: 1,
+      baseUrl: 'http://localhost:3000/'
     }
   }
 
@@ -50,7 +52,7 @@ class App extends Component {
     "title": movie.title,
     "due_date": rental_due }
 
-    axios.post(`http://localhost:3000/rentals/${movie.title}/check-out`, rental)
+    axios.post(`${this.state.baseUrl}rentals/${movie.title}/check-out`, rental)
     .then((response) => {
       console.log(response);
       this.setState({
@@ -63,9 +65,29 @@ class App extends Component {
     });
 }
 
+  nextCustomerPage = () => {
+  axios.get(`${this.state.baseUrl}/customers`, {
+    params: {
+      "sort": "name",
+      "p": this.state.currentPage + 1,
+      "n": 10
+    }})
+
+    .then((response) => {
+      this.setState({ 
+        customers: response.data,
+        currentPage: this.state.currentPage + 1,
+       });
+      console.log(this.state.customers)
+    })
+    .catch((error) => {
+      console.log(error)
+      this.setState({ error: error.errors });
+    });
+}
 
   render() {
-    const BASE_URL = 'http://localhost:3000/'
+    const BASE_URL = this.state.baseUrl;
     const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental}/> : ''
 
     return (

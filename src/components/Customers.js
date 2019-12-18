@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+// import Pagination from './Pagination'
 import './Library.css'
 
 class Customers extends Component {
@@ -10,18 +11,41 @@ class Customers extends Component {
     this.state = {
       customers: [],
       error: '',
+      currentPage: 1,
     };
   }
 
   componentDidMount() {
-    // const sortBy = { "sort": "name" }
-
     axios.get(`${this.props.url}`, {
       params: {
-        "sort": "name"
+        "sort": "name",
+        "p": 1,
+        "n": 10
       }})
       .then((response) => {
         this.setState({ customers: response.data });
+        console.log(this.state.customers)
+        console.log(`total customers ${this.state.customers.length}`)
+      })
+      .catch((error) => {
+        console.log(error)
+        this.setState({ error: error.errors });
+      });
+  }
+
+  nextPage = () => {
+    axios.get(`${this.props.url}`, {
+      params: {
+        "sort": "name",
+        "p": this.state.currentPage + 1,
+        "n": 10
+      }})
+
+      .then((response) => {
+        this.setState({ 
+          customers: response.data,
+          currentPage: this.state.currentPage + 1,
+         });
         console.log(this.state.customers)
       })
       .catch((error) => {
@@ -30,12 +54,37 @@ class Customers extends Component {
       });
   }
 
+  previousPage = () => {
+    if (this.state.currentPage - 1 > 1) {
+      axios.get(`${this.props.url}`, {
+        params: {
+          "sort": "name",
+          "p": this.state.currentPage -1,
+          "n": 10
+        }})
+
+        .then((response) => {
+          this.setState({ 
+            customers: response.data,
+            currentPage: this.state.currentPage - 1,
+          });
+          console.log(this.state.customers)
+        })
+        .catch((error) => {
+          console.log(error)
+          this.setState({ error: error.errors });
+        });
+    }
+  }
+
+
   render() {
 
     const getCustomers = this.state.customers.map((customer) => {
       const cardColor = (customer.id % 2 === 0) ? 'movie-card_lt' : 'movie-card_dk'
  
         return (
+          // const numberPages = Math.floor(this.state.totalResults / 10)
 
           <div key={customer.id} className={cardColor}> 
             <div className="movie-card__content">
@@ -71,10 +120,21 @@ class Customers extends Component {
       });
 
     return (
-      <section >
+      <section className='customers-container'>
+        <h3>{`Page Number ${this.state.currentPage}`}</h3>
       <div>
         {getCustomers}
       </div>
+      <button
+        onClick={() => this.previousPage()}
+        >
+        Previous Page
+        </button>
+      <button
+        onClick={() => this.nextPage()}
+        >
+        Next Page
+        </button>
       </section>
     )
   }
