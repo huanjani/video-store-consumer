@@ -1,0 +1,8 @@
+.selection-box {
+  background-color: lightgrey;
+  border-radius: 5px;
+  color: black;
+  height: 125px;
+  width: 300px;
+  float: right;
+}

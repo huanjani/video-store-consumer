@@ -53,3 +53,8 @@ img {
   padding: 1.25em;
 }
 
+main {
+  {
+    margin-top: 20%; /* Add a top margin to avoid content overlay */
+  }
+}
