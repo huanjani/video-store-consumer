@@ -5,16 +5,10 @@ import './SearchResults.css';
 class SearchResults extends Component {
   constructor(props) {
     super();
-
-    this.state = {
-      movie: '',
-      error: '',
-      url: props.url
-    };
   }
 
   searchResultToLibrary(movie) {
-    axios.post(`${this.state.url}`, {
+    axios.post(`${this.props.url}`, {
       "title": movie.title,
       "overview": movie.overview,
       "release_date": movie.release_date,
@@ -23,11 +17,11 @@ class SearchResults extends Component {
       "inventory": 5
     })
     .then((response) => {
-      this.setState({ movie: response.data });
+
       })
-    .catch((errors) => {
-      this.setState({ error: errors.title });
-      console.log(errors.title);
+    .catch((error) => {
+      // this.setState({ error: errors.title });
+      console.log(error);
     });
   }
 
