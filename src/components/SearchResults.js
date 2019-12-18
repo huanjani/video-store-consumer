@@ -5,36 +5,59 @@ import './SearchResults.css';
 const SearchResults = (props) => {
 
   const searchResultToLibrary = (movie) => {
-    // if (getMovies.external_id === )
-    axios.post(`${props.url}`, {
-      "title": movie.title,
-      "overview": movie.overview,
-      "release_date": movie.release_date,
-      "image_url": movie.image_url,
-      "external_id": movie.external_id,
-      "inventory": 5
-    })
-    .then((response) => {
-      console.log(response)
+    { (notInLibrary(movie))
+      ?
+      (axios.post(`${props.url}`, {
+        "title": movie.title,
+        "overview": movie.overview,
+        "release_date": movie.release_date,
+        "image_url": movie.image_url,
+        "external_id": movie.external_id,
+        "inventory": 5
       })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((response) => {
+        console.log(response)
+        })
+      .catch((error) => {
+        console.log(error);
+      })
+      )
+      :
+      //make this an update function that increases inventory rather than listing the movie again
+      console.log('this is the action if movie is already in the rental library')
+      (axios.post(`${props.url}`, {
+        "title": movie.title,
+        "overview": movie.overview,
+        "release_date": movie.release_date,
+        "image_url": movie.image_url,
+        "external_id": movie.external_id,
+        "inventory": 5
+      })
+      .then((response) => {
+        console.log(response)
+        })
+      .catch((error) => {
+        console.log(error);
+      })
+      )
+    }
   }
 
   const notInLibrary = (movie) => {
-    let displayButton;
+    // let displayButton;
     axios.get(`${props.url}/${movie.title}`)
       .then((response) => {
         console.log(response);
-        displayButton = false;
+        return false;
+        // displayButton = false;
       })
       .catch((error) => {
         console.log(error);
-        displayButton = true;
+        return true;
+        // displayButton = true;
       });
-    console.log(`displayButton: ${displayButton}`)
-    return displayButton;
+    // console.log(`displayButton: ${displayButton}`)
+    // return displayButton;
   }
 
   const getMovies = props.movieData.map((movie, i) => {
@@ -50,14 +73,10 @@ const SearchResults = (props) => {
             <p className="movie-card__content_overview">{movie.overview}</p>
             <p>Release Date: {movie.release_date}</p>
             <p>
-              { notInLibrary(movie)
-              ?
+
               <button type="button" className="movie-select" onClick={() => searchResultToLibrary(movie)}>
                 Add to Rental Library
               </button>
-              :
-              ''
-              }
             </p>
           </div>
         </div>
