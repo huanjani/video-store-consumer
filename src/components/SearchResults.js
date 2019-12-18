@@ -5,54 +5,49 @@ import './SearchResults.css';
 const SearchResults = (props) => {
 
   const searchResultToLibrary = (movie) => {
-    { (notInLibrary(movie))
-      ?
+    let curInventory = 5;
+    if (notInLibrary(movie)===true){
       (axios.post(`${props.url}`, {
         "title": movie.title,
         "overview": movie.overview,
         "release_date": movie.release_date,
         "image_url": movie.image_url,
         "external_id": movie.external_id,
-        "inventory": 5
+        "inventory": curInventory
       })
       .then((response) => {
-        console.log(response)
-        })
-      .catch((error) => {
-        console.log(error);
-      })
-      )
-      :
-      //make this an update function that increases inventory rather than listing the movie again
-      console.log('this is the action if movie is already in the rental library')
-      (axios.post(`${props.url}`, {
-        "title": movie.title,
-        "overview": movie.overview,
-        "release_date": movie.release_date,
-        "image_url": movie.image_url,
-        "external_id": movie.external_id,
-        "inventory": 5
-      })
-      .then((response) => {
-        console.log(response)
+        let curInventory = response.title
+        console.log(response.title)
         })
       .catch((error) => {
         console.log(error);
       })
       )
     }
+  else {
+      (axios.patch(`${props.url}/${movie.title}/increase`, {
+        "inventory": (curInventory += 1)
+      })
+      .then((response) => {
+        console.log(response)
+        })
+      .catch((error) => {
+        console.log(error);
+      })
+      )
+  }
   }
 
   const notInLibrary = (movie) => {
     // let displayButton;
     axios.get(`${props.url}/${movie.title}`)
       .then((response) => {
-        console.log(response);
+        console.log('not in library');
         return false;
         // displayButton = false;
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error, 'is in library');
         return true;
         // displayButton = true;
       });
