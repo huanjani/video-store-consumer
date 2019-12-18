@@ -5,9 +5,7 @@ import './SearchResults.css';
 
 const SearchResults = (props) => {
 
-
   const searchResultToLibrary = (movie) => {
-    console.log(`arrived in method and the movie is ${movie.title} and its id is ${movie.external_id}`)
     axios.post(`${props.url}`, {
       "title": movie.title,
       "overview": movie.overview,
