@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
 import Search from './components/Search'
 import Library from './components/Library'
@@ -34,10 +35,30 @@ class App extends Component {
     });
 }
 
+  onClickAddRental = (movie, customer) => {
+    const rental = {"customer_id": customer.id, 
+    "title": movie.title,
+    "due_date": "2020-01-15"}
+
+    axios.post(`http://localhost:3000/${movie.title}/check-out`, rental)
+    console.log(rental)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+
+    this.setState({
+      currentMovie: '',
+      currentCustomer: '',
+    });
+}
+
 
   render() {
     const BASE_URL = 'http://localhost:3000/'
-    const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection url={BASE_URL} customer={this.state.currentCustomer} movie={this.state.currentMovie} /> : ''
+    const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental}/> : ''
 
     return (
     
