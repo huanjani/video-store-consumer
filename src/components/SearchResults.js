@@ -6,53 +6,50 @@ const SearchResults = (props) => {
 
   const searchResultToLibrary = (movie) => {
     let curInventory = 5;
-    if (notInLibrary(movie)===true){
-      (axios.post(`${props.url}`, {
-        "title": movie.title,
-        "overview": movie.overview,
-        "release_date": movie.release_date,
-        "image_url": movie.image_url,
-        "external_id": movie.external_id,
-        "inventory": curInventory
+    (notInLibrary(movie))
+    ?
+    (axios.post(`${props.url}`, {
+      "title": movie.title,
+      "overview": movie.overview,
+      "release_date": movie.release_date,
+      "image_url": movie.image_url,
+      "external_id": movie.external_id,
+      "inventory": curInventory
+    })
+    .then((response) => {
+      let curInventory = response.title
+      console.log(response.title)
       })
-      .then((response) => {
-        let curInventory = response.title
-        console.log(response.title)
-        })
-      .catch((error) => {
-        console.log(error);
+    .catch((error) => {
+      console.log(error);
+    })
+    )
+    :
+    (axios.patch(`${props.url}/${movie.title}/increase`, {
+      "inventory": (curInventory += 1)
+    })
+    .then((response) => {
+      console.log(response)
       })
-      )
-    }
-  else {
-      (axios.patch(`${props.url}/${movie.title}/increase`, {
-        "inventory": (curInventory += 1)
-      })
-      .then((response) => {
-        console.log(response)
-        })
-      .catch((error) => {
-        console.log(error);
-      })
-      )
-  }
+    .catch((error) => {
+      console.log(error);
+    })
+    )
   }
 
+
   const notInLibrary = (movie) => {
-    // let displayButton;
+    let needToAdd;
     axios.get(`${props.url}/${movie.title}`)
       .then((response) => {
-        console.log('not in library');
-        return false;
-        // displayButton = false;
+        console.log(response.status);
+        needToAdd = false;
       })
       .catch((error) => {
-        console.log(error, 'is in library');
-        return true;
-        // displayButton = true;
+        console.log(error, 'is not in library');
+        needToAdd = true;
       });
-    // console.log(`displayButton: ${displayButton}`)
-    // return displayButton;
+    return needToAdd;
   }
 
   const getMovies = props.movieData.map((movie, i) => {
@@ -79,12 +76,13 @@ const SearchResults = (props) => {
         )
       })
 
-    return (
-      <div>
-        {getMovies}
-      </div>
-    )
-    }
+  return (
+    <div>
+      {getMovies}
+    </div>
+  )
+}
+
 
 
 
