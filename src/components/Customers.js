@@ -14,12 +14,18 @@ class Customers extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${this.props.url}`)
+    // const sortBy = { "sort": "name" }
+
+    axios.get(`${this.props.url}`, {
+      params: {
+        "sort": "name"
+      }})
       .then((response) => {
         this.setState({ customers: response.data });
-        // console.log(this.state.customers)
+        console.log(this.state.customers)
       })
       .catch((error) => {
+        console.log(error)
         this.setState({ error: error.errors });
       });
   }
