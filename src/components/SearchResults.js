@@ -18,7 +18,9 @@ class SearchResults extends Component {
       "title": movie.title,
       "overview": movie.overview,
       "release_date": movie.release_date,
-      "image_url": movie.image_url
+      "image_url": movie.image_url,
+      "external_id": movie.id,
+      "inventory": 5
     })
     .then((response) => {
       this.setState({ movie: response.data });
