@@ -9,7 +9,7 @@ const Selection = ({customer, movie, addRentalCallback}) => {
 
         { customer ? (<p>Customer: {customer.name}</p>) : (<p>Customer: None Selected</p>)}
         { movie ? (<p>Movie: {movie.title}</p>) : (<p>Movie: None Selected</p>)}
-        { (customer && movie) ? (<p><button onClick={() => addRentalCallback(movie, customer)} >Checkout</button></p>) : ''}
+        { (customer && movie) ? (<p><button onClick={() => {addRentalCallback(movie, customer)}} >Checkout</button></p>) : ''}
       </div>
     );
   }
