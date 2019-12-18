@@ -36,7 +36,7 @@ class App extends Component {
 }
 
   onClickAddRental = (movie, customer) => {
-    const rental = {"customer_id": customer.id, 
+    const rental = {"customer_id": customer.id,
     "title": movie.title,
     "due_date": "2020-01-15"}
 
@@ -61,7 +61,7 @@ class App extends Component {
     const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental}/> : ''
 
     return (
-    
+
       <Router>
       <div className="App">
       <nav>
@@ -70,14 +70,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Jallie's Video Emporium</h1>
         </header>
-  
+
           <ul>
             <li><Link to="/search">Search</Link></li>
             <li><Link to="/library">Library</Link></li>
             <li><Link to="/customers">Customers</Link></li>
           </ul>
         </nav>
-      
+
         <Switch>
           <Route path="/search">
             <Search url={`${BASE_URL}movies`} />
