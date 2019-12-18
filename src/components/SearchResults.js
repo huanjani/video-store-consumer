@@ -11,20 +11,21 @@ class SearchResults extends Component {
     };
   }
 
-  searchResultToLibrary(movie) {
-    axios.post(`${this.state.url}`, {
-      "title": movie.title,
-      "overview": movie.overview,
-      "release_date": movie.release_date,
-      "image_url": movie.image_url
-    })
-    .then((response) => {
-      })
-    .catch((errors) => {
-      this.setState({ error: errors.title });
-      console.log(errors.title);
-    });
-    }
+  // searchResultToLibrary(movie) {
+  //   axios.post(`${this.state.url}`, {
+  //     "title": movie.title,
+  //     "overview": movie.overview,
+  //     "release_date": movie.release_date,
+  //     "image_url": movie.image_url
+  //   })
+  //   .then((response) => {
+  //     })
+  //   .catch((errors) => {
+  //     this.setState({ error: errors.title });
+  //     console.log(errors.title);
+  //   });
+  //   }
+
 render () {
   const getMovies = this.props.movieData.map((movie, i) => {
     const listingColor = (i % 2 === 0) ? 'movie-card_one' : 'movie-card_two'

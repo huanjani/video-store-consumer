@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Selection.css';
 
 const Selection = ({customer, movie}) => {
 
     return (
-      <div>
-        { customer ? (<p>Customer: {customer.name}</p>) : ''}
-        { movie ? (<p>Movie: {movie.title}</p>) : ''}
+      <div className="selection-box">
+
+        { customer ? (<p>Customer: {customer.name}</p>) : (<p>Customer: None Selected</p>)}
+        { movie ? (<p>Movie: {movie.title}</p>) : (<p>Movie: None Selected</p>)}
+        { (customer && movie) ? (<p><button>Checkout</button></p>) : ''}
+
       </div>
     );
   }

@@ -43,18 +43,20 @@ class App extends Component {
     
       <Router>
       <div className="App">
+      <nav>
         <header className="App-header">
            {selectBox}
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Jallie's Video Emporium</h1>
         </header>
-        <nav>
+  
           <ul>
             <li><Link to="/search">Search</Link></li>
             <li><Link to="/library">Library</Link></li>
             <li><Link to="/customers">Customers</Link></li>
           </ul>
         </nav>
+      
         <Switch>
           <Route path="/search">
             <Search url={`${BASE_URL}movies`} />
