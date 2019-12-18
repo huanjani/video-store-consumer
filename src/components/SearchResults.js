@@ -7,7 +7,9 @@ class SearchResults extends Component {
     super();
 
     this.state = {
+      movie: '',
       error: '',
+      url: props.url
     };
   }
 
@@ -19,12 +21,14 @@ class SearchResults extends Component {
       "image_url": movie.image_url
     })
     .then((response) => {
+      this.setState({ movie: response.data });
       })
     .catch((errors) => {
       this.setState({ error: errors.title });
       console.log(errors.title);
     });
-    }
+  }
+
 render () {
   const getMovies = this.props.movieData.map((movie, i) => {
     const listingColor = (i % 2 === 0) ? 'movie-card_one' : 'movie-card_two'
