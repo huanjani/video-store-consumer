@@ -39,19 +39,18 @@ class App extends Component {
     const rental = {"customer_id": customer.id, 
     "title": movie.title,
     "due_date": "2020-01-15"}
-
-    axios.post(`http://localhost:3000/${movie.title}/check-out`, rental)
     console.log(rental)
+
+    axios.post(`http://localhost:3000/rentals/${movie.title}/check-out`, rental)
     .then((response) => {
       console.log(response);
+      this.setState({
+        currentMovie: '',
+        currentCustomer: '',
+      });
     })
     .catch((error) => {
         console.log(error);
-    });
-
-    this.setState({
-      currentMovie: '',
-      currentCustomer: '',
     });
 }
 
