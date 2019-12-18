@@ -7,13 +7,13 @@ const SearchResults = (props) => {
 
 
   const searchResultToLibrary = (movie) => {
-    console.log(`arrived in method and the movie is ${movie.title}`)
+    console.log(`arrived in method and the movie is ${movie.title} and its id is ${movie.external_id}`)
     axios.post(`${props.url}`, {
       "title": movie.title,
       "overview": movie.overview,
       "release_date": movie.release_date,
       "image_url": movie.image_url,
-      "external_id": movie.id,
+      "external_id": movie.external_id,
       "inventory": 5
     })
     .then((response) => {
