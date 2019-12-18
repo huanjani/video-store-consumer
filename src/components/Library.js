@@ -17,6 +17,7 @@ class Library extends Component {
     axios.get(`${this.props.url}`)
       .then((response) => {
         this.setState({ movies: response.data });
+        console.log(this.state.movies)
       })
       .catch((error) => {
         this.setState({ error: error.errors.title });

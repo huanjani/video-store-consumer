@@ -17,7 +17,7 @@ class Customers extends Component {
     axios.get(`${this.props.url}`)
       .then((response) => {
         this.setState({ customers: response.data });
-        console.log(this.state.customers)
+        // console.log(this.state.customers)
       })
       .catch((error) => {
         this.setState({ error: error.errors });
