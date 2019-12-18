@@ -70,7 +70,7 @@ class Search extends Component {
             onClick={this.onSubmit}
           />
         </form>
-        <SearchResults movieData={this.state.movies} />
+        <SearchResults movieData={this.state.movies} url={this.props.url}/>
       </div>
     );
   }
