@@ -8,6 +8,7 @@ import Library from './components/Library';
 import Customers from './components/Customers';
 import Selection from './components/Selection';
 import CustDetail from './components/CustDetail';
+import Feedback from './components/Feedback';
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,7 +25,8 @@ class App extends Component {
       currentCustomer: '',
       detailCustomer: '',
       customerPage: 1,
-      baseUrl: 'http://localhost:3000/'
+      baseUrl: 'http://localhost:3000/',
+      message: '',
     }
   }
 
@@ -55,6 +57,7 @@ class App extends Component {
       this.setState({
         currentMovie: '',
         currentCustomer: '',
+        message: 'Checkout successful!',
       });
     })
     .catch((error) => {
@@ -72,6 +75,7 @@ class App extends Component {
       this.setState({
         currentMovie: '',
         currentCustomer: '',
+        message: 'Return successful!'
       });
     })
     .catch((error) => {
@@ -81,7 +85,7 @@ class App extends Component {
 
   render() {
     const BASE_URL = this.state.baseUrl;
-    const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental} returnRentalCallback={this.onClickReturnRental}/> : ''
+    const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental} returnRentalCallback={this.onClickReturnRental}/> : <Feedback message={this.state.message} background='pink'/>
 
     return (
 
