@@ -21,7 +21,8 @@ const SearchResults = (props) => {
       console.log(error);
     })
     )
-
+  }
+  
   const getMovies = props.movieData.map((movie, i) => {
     const listingColor = (i % 2 === 0) ? 'movie-card_one' : 'movie-card_two'
     return (
@@ -52,9 +53,6 @@ const SearchResults = (props) => {
     </div>
   )
 }
-
-
-
 
 
 export default SearchResults;
