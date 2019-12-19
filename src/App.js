@@ -65,8 +65,6 @@ class App extends Component {
     });
 }
 
-
-
   render() {
     const BASE_URL = this.state.baseUrl;
     const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental}/> : ''
