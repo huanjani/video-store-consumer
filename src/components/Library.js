@@ -28,10 +28,9 @@ class Library extends Component {
 
     const getMovies = this.state.movies.map((movie) => {
       const cardColor = (movie.id % 2 === 0) ? 'movie-card_lt' : 'movie-card_dk'
- 
         return (
 
-          <div key={movie.id} className={cardColor}> 
+          <div key={movie.id} className={cardColor}>
             <div className="movie-card__content">
               <div >
                   <img src={movie.image_url} width={200} mode='fit' alt={`${movie.title} poster`}/>

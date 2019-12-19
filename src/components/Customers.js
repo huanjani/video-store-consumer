@@ -116,7 +116,7 @@ class Customers extends Component {
     return (
       <section className='customers-container'>
 
-          <h3>{`Page Number ${this.state.currentPage}`}</h3>
+          <h3>{`Page ${this.state.currentPage}`}</h3>
         <div className='customers-cards'>
           {getCustomers}
         </div>
