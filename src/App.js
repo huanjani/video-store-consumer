@@ -87,6 +87,7 @@ class App extends Component {
     const BASE_URL = this.state.baseUrl;
     const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental} returnRentalCallback={this.onClickReturnRental}/> : <Feedback message={this.state.message} background='pink'/>
 
+
     return (
 
       <Router>

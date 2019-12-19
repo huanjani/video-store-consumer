@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import './SearchResults.css';
 import Feedback from './Feedback'
 
@@ -63,6 +64,11 @@ class SearchResults extends Component {
     </div>
   )
 }
+}
+
+SearchResults.propTypes = {
+  url: PropTypes.string.isRequired,
+  movieData: PropTypes.array,
 }
 
 

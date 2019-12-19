@@ -1,23 +1,28 @@
 
 h3 {
   margin-top: 20px;
+  font-family: 'Bitter', serif;
 }
 
 .customers-cards {
   display: flex;
   flex-wrap: wrap;
+  font-family: 'Bitter', serif;
 }
 
 .movie-card__content {
   font-weight: normal;
+  font-family: 'Bitter', serif;
 }
 
 .previous-button {
   margin: 25px;
+  font-family: 'Bitter', serif;
 }
 
 .next-button {
   margin: 25px;
+  font-family: 'Bitter', serif;
 }
 
 /* Previous Page */

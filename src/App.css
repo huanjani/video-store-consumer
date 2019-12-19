@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Lakki+Reddy&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
+
 .App {
   text-align: center;
 }
@@ -10,13 +13,14 @@
 
 .App-header {
   background-color: rgb(228, 98, 120);
-  height: 200px;
-  padding: 20px;
+  height: 225px;
+  padding: 50px;
   color: white;
+  font-family: 'Lakki Reddy', cursive;
 }
 
 .App-title {
-  font-size: 3em;
+  font-size: 4em;
 }
 
 .App-intro {
@@ -46,6 +50,7 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-family: 'Bitter', serif;
 }
 
 /* Change the link color to #111 (black) on hover */

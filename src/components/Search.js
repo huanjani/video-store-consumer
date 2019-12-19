@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import SearchResults from './SearchResults'
+import './Search.css'
 
 
 class Search extends Component {
@@ -35,9 +37,6 @@ class Search extends Component {
         console.log(errors.title)
       });
 
-      console.log(`errors: ${this.state.errors}`)
-      console.log(`movies: ${this.state.movies.title}`)
-
       this.setState({
         query: '',
       });
@@ -47,14 +46,14 @@ class Search extends Component {
 
     return (
       <div>
-        <form className="" onSubmit={this.onSubmit}>
+        <form className="text" onSubmit={this.onSubmit}>
 
           <div>
-            <label className="" htmlFor="text">Search for a movie: </label>
+            <label className="text" htmlFor="text">Search for a movie: </label>
           </div>
 
           <div>
-            <textarea className=""
+            <textarea className="text"
               name="query"
               onChange={this.onInputChange}
               value={this.state.query}
@@ -74,6 +73,10 @@ class Search extends Component {
       </div>
     );
   }
+}
+
+Search.propTypes = {
+  url: PropTypes.string.isRequired,
 }
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Feedback.css';
 
 const Feedback = (props) => {
@@ -11,5 +12,8 @@ const Feedback = (props) => {
     )
   }
 
+  Feedback.propTypes = {
+    message: PropTypes.string.isRequired,
+  }
 
   export default Feedback;
