@@ -43,7 +43,7 @@ class Customers extends Component {
       }})
 
       .then((response) => {
-        this.setState({ 
+        this.setState({
           customers: response.data,
           currentPage: this.state.currentPage + 1,
          });
@@ -65,7 +65,7 @@ class Customers extends Component {
         }})
 
         .then((response) => {
-          this.setState({ 
+          this.setState({
             customers: response.data,
             currentPage: this.state.currentPage - 1,
           });
@@ -83,13 +83,13 @@ class Customers extends Component {
 
     const getCustomers = this.state.customers.map((customer) => {
       const cardColor = (customer.id % 2 === 0) ? 'movie-card_lt' : 'movie-card_dk'
- 
+
         return (
-          <div key={customer.id} className={cardColor}> 
+          <div key={customer.id} className={cardColor}>
             <div className="movie-card__content">
               <div >
                 <h3>{customer.name}</h3>
-                
+
                 <p>Account Credit: ${customer.account_credit}
                 </p>
                 <p>Checked Out: {customer.movies_checked_out_count}
@@ -121,12 +121,12 @@ class Customers extends Component {
           {getCustomers}
         </div>
         <div className="button-container">
-        <Button variant="primary" className="previous-button" 
+        <Button variant="primary" className="previous-button"
           onClick={() => this.previousPage()}
           >
           <span>Previous Page</span>
           </Button>
-        <Button variant="primary" className="next-button" 
+        <Button variant="primary" className="next-button"
           onClick={() => this.nextPage()}
           >
           <span>Next Page</span>
@@ -137,7 +137,7 @@ class Customers extends Component {
   }
 }
 
-Customers .propTypes = {
+Customers.propTypes = {
   url: PropTypes.string.isRequired,
 }
 

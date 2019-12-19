@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import './SearchResults.css';
+import Feedback from './Feedback'
 
-const SearchResults = (props) => {
+class SearchResults extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      title: '',
+      message: '',
+    }
+  }
 
-  const searchResultToLibrary = (movie) => {
-    (axios.post(`${props.url}`, {
+  searchResultToLibrary = (movie) => {
+    (axios.post(`${this.props.url}`, {
       "title": movie.title,
       "overview": movie.overview,
       "release_date": movie.release_date,
@@ -14,15 +22,17 @@ const SearchResults = (props) => {
       "inventory": 5
     })
     .then((response) => {
-      console.log(response.movie.title)
+      this.setState({message: `${movie.title} successfully added to Rental Library!`, title: movie.title})
       })
     .catch((error) => {
-      console.log(error);
+      this.setState({message: `${movie.title} was already in the Rental Library.`, title: movie.title})
     })
     )
   }
 
-  const getMovies = props.movieData.map((movie, i) => {
+  render() {
+  const alert = (this.state.message !== '') ? <Feedback message={this.state.message}/> : ''
+  const getMovies = this.props.movieData.map((movie, i) => {
     const listingColor = (i % 2 === 0) ? 'movie-card_one' : 'movie-card_two'
     return (
       <div key={i}
@@ -36,9 +46,10 @@ const SearchResults = (props) => {
             <p>Release Date: {movie.release_date}</p>
             <p>
 
-              <button type="button" className="movie-select" onClick={() => searchResultToLibrary(movie)}>
+              <button type="button" className="movie-select" onClick={() => this.searchResultToLibrary(movie)}>
                 Add to Rental Library
               </button>
+                {this.state.title === movie.title && (<div>{alert}</div>)}
             </p>
           </div>
         </div>
@@ -51,6 +62,7 @@ const SearchResults = (props) => {
       {getMovies}
     </div>
   )
+}
 }
 
 
