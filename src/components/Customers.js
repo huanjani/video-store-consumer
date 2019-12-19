@@ -96,9 +96,15 @@ class Customers extends Component {
                 </p>
 
                 <p><Button variant="primary"
-                  onClick={() => this.props.selectCustomerCallback(customer)}
+                  onClick={() => this.props.onSelectCallback('currentCustomer', customer)}
                 >
                 Select Customer
+                </Button>
+                </p>
+                <p><Button variant="primary"
+                  onClick={() => this.props.onSelectCallback('detailCustomer', customer)}
+                >
+                View Details
                 </Button>
                 </p>
               </div>
@@ -136,15 +142,3 @@ Customers .propTypes = {
 }
 
 export default Customers;
-
-
-{/* <p>Address:
-                  <br />{customer.address}
-                  <br />{customer.city}, {customer.state} {customer.postal_code}</p>
-
-                <p>Phone: 
-                  <br />{customer.phone}</p>
-
-                <p>Registered At:
-                  <br />{customer.registered_at}
-                </p> */}
