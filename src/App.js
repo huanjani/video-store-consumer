@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ape from './ape.jpeg';
 import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
@@ -60,10 +61,27 @@ class App extends Component {
         console.log(error);
     });
 }
+  onClickReturnRental = (movie, customer) => {
+    const rental = {
+    "title": movie.title,
+    "customer_id": customer.id
+    }
+    axios.post(`${this.state.baseUrl}rentals/${movie.title}/return`, (rental))
+    .then((response) => {
+      console.log(response);
+      this.setState({
+        currentMovie: '',
+        currentCustomer: '',
+      });
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+  }
 
   render() {
     const BASE_URL = this.state.baseUrl;
-    const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental}/> : ''
+    const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental} returnRentalCallback={this.onClickReturnRental}/> : ''
 
     return (
 
@@ -72,8 +90,8 @@ class App extends Component {
       <nav>
         <header className="App-header">
            {selectBox}
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Jallie's Video Emporium</h1>
+          <img src={ape} className="App-logo" alt="logo" />
+          <h1 className="App-title">Apey Eye Video Store</h1>
         </header>
 
           <ul>

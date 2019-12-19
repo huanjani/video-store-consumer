@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Selection.css';
 
-const Selection = ({customer, movie, addRentalCallback}) => {
+const Selection = ({customer, movie, addRentalCallback, returnRentalCallback}) => {
 
     return (
       <div className="selection-box">
 
         { customer ? (<p>Customer: {customer.name}</p>) : (<p>Customer: None Selected</p>)}
         { movie ? (<p>Movie: {movie.title}</p>) : (<p>Movie: None Selected</p>)}
-        { (customer && movie) ? (<p><button onClick={() => {addRentalCallback(movie, customer)}} >Checkout</button></p>) : ''}
+        { (customer && movie) ? (<div><p><button onClick={() => {addRentalCallback(movie, customer)}} >Check Out</button></p> <p><button onClick={() => {returnRentalCallback(movie, customer)}} >Check In</button></p></div>): ''}
       </div>
     );
   }
