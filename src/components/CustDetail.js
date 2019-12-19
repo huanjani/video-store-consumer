@@ -80,11 +80,10 @@ class Customers extends Component {
 
 
   render() {
-
-    const getCustomers = this.state.customers.map((customer) => {
-      const cardColor = (customer.id % 2 === 0) ? 'movie-card_lt' : 'movie-card_dk'
  
         return (
+          // const numberPages = Math.floor(this.state.totalResults / 10)
+
           <div key={customer.id} className={cardColor}> 
             <div className="movie-card__content">
               <div >
@@ -108,25 +107,7 @@ class Customers extends Component {
       });
 
     return (
-      <section className='customers-container'>
 
-          <h3>{`Page Number ${this.state.currentPage}`}</h3>
-        <div className='customers-cards'>
-          {getCustomers}
-        </div>
-        <div className="button-container">
-        <Button variant="primary" className="previous-button" 
-          onClick={() => this.previousPage()}
-          >
-          <span>Previous Page</span>
-          </Button>
-        <Button variant="primary" className="next-button" 
-          onClick={() => this.nextPage()}
-          >
-          <span>Next Page</span>
-          </Button>
-          </div>
-      </section>
     )
   }
 }

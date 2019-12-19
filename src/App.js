@@ -20,6 +20,8 @@ class App extends Component {
     this.state = {
       currentMovie: '',
       currentCustomer: '',
+      customerPage: 1,
+      baseUrl: 'http://localhost:3000/'
     }
   }
 
@@ -36,12 +38,21 @@ class App extends Component {
 }
 
   onClickAddRental = (movie, customer) => {
+    const today = new Date()
+
+    function addDays(date, days) {
+      let result = new Date(date);
+      result.setDate(result.getDate() + days);
+      return result;
+    }
+
+    const rental_due = addDays(today, 7)
+
     const rental = {"customer_id": customer.id, 
     "title": movie.title,
-    "due_date": "2020-01-15"}
-    console.log(rental)
+    "due_date": rental_due }
 
-    axios.post(`http://localhost:3000/rentals/${movie.title}/check-out`, rental)
+    axios.post(`${this.state.baseUrl}rentals/${movie.title}/check-out`, rental)
     .then((response) => {
       console.log(response);
       this.setState({
@@ -54,9 +65,8 @@ class App extends Component {
     });
 }
 
-
   render() {
-    const BASE_URL = 'http://localhost:3000/'
+    const BASE_URL = this.state.baseUrl;
     const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental}/> : ''
 
     return (

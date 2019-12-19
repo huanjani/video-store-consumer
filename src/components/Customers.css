@@ -1,0 +1,76 @@
+
+h3 {
+  margin-top: 20px;
+}
+
+.customers-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-card__content {
+  font-weight: normal;
+}
+
+.previous-button {
+  margin: 25px;
+}
+
+.next-button {
+  margin: 25px;
+}
+
+/* Previous Page */
+
+.previous-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.previous-button span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 20px;
+  transition: 0.5s;
+}
+
+.previous-button:hover span {
+  padding-left: 25px;
+}
+
+.previous-button:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+
+/* Next Page */
+.next-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.next-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.next-button:hover span {
+  padding-right: 25px;
+}
+
+.next-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
