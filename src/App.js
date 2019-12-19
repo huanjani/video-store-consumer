@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
-import Search from './components/Search'
-import Library from './components/Library'
-import Customers from './components/Customers'
-import Selection from './components/Selection'
+import Search from './components/Search';
+import Library from './components/Library';
+import Customers from './components/Customers';
+import Selection from './components/Selection';
+import CustDetail from './components/CustDetail';
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,22 +21,17 @@ class App extends Component {
     this.state = {
       currentMovie: '',
       currentCustomer: '',
+      detailCustomer: '',
       customerPage: 1,
       baseUrl: 'http://localhost:3000/'
     }
   }
 
-  onSelectCustomer = (customer) => {
-      this.setState({
-        currentCustomer: customer,
-      });
-  }
-
-  onSelectMovie = (movie) => {
+  onSelect = (item, value) => {
     this.setState({
-      currentMovie: movie,
+      [item]: value,
     });
-}
+  }
 
   onClickAddRental = (movie, customer) => {
     const today = new Date()
@@ -92,10 +88,10 @@ class App extends Component {
             <Search url={`${BASE_URL}movies`} />
           </Route>
           <Route path="/library">
-            <Library url={`${BASE_URL}movies`} selectMovieCallback={this.onSelectMovie} />
+            <Library url={`${BASE_URL}movies`} onSelectCallback={this.onSelect} />
           </Route>
           <Route path="/customers">
-            <Customers url={`${BASE_URL}customers`} selectCustomerCallback={this.onSelectCustomer} />
+        { this.state.detailCustomer ? <CustDetail customer={this.state.detailCustomer} /> : <Customers url={`${BASE_URL}customers`} onSelectCallback={this.onSelect}/> }
           </Route>
         </Switch>
       </div>

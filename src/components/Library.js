@@ -41,7 +41,7 @@ class Library extends Component {
                 <p>Release Date: {movie.release_date}</p>
 
                 <p><button
-                onClick={() => this.props.selectMovieCallback(movie)}
+                onClick={() => this.props.onSelectCallback('currentMovie', movie)}
                 >
                 Select Movie
                 </button>
