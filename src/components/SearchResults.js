@@ -5,9 +5,6 @@ import './SearchResults.css';
 const SearchResults = (props) => {
 
   const searchResultToLibrary = (movie) => {
-    // let curInventory = 5;
-    // (notInLibrary(movie))
-    // ?
     (axios.post(`${props.url}`, {
       "title": movie.title,
       "overview": movie.overview,
@@ -24,33 +21,6 @@ const SearchResults = (props) => {
       console.log(error);
     })
     )
-    // :
-    // (axios.patch(`${props.url}/${movie.title}/increase`, {
-    //   "inventory": (curInventory += 1)
-    // })
-    // .then((response) => {
-    //   console.log(response)
-    //   })
-    // .catch((error) => {
-    //   console.log(error);
-    // })
-    // )
-  }
-
-
-  // const notInLibrary = (movie) => {
-  //   let needToAdd;
-  //   axios.get(`${props.url}/${movie.title}`)
-  //     .then((response) => {
-  //       console.log(response.status);
-  //       needToAdd = false;
-  //     })
-  //     .catch((error) => {
-  //       console.log(error, 'is not in library');
-  //       needToAdd = true;
-  //     });
-  //   return needToAdd;
-  // }
 
   const getMovies = props.movieData.map((movie, i) => {
     const listingColor = (i % 2 === 0) ? 'movie-card_one' : 'movie-card_two'
