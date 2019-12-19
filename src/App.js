@@ -109,7 +109,7 @@ class App extends Component {
             <Library url={`${BASE_URL}movies`} onSelectCallback={this.onSelect} />
           </Route>
           <Route path="/customers">
-        { this.state.detailCustomer ? <CustDetail customer={this.state.detailCustomer} /> : <Customers url={`${BASE_URL}customers`} onSelectCallback={this.onSelect}/> }
+        { this.state.detailCustomer ? <CustDetail customer={this.state.detailCustomer} onSelectCallback={this.onSelect}/> : <Customers url={`${BASE_URL}customers`} onSelectCallback={this.onSelect}/> }
           </Route>
         </Switch>
       </div>

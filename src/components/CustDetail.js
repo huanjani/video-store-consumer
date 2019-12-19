@@ -1,23 +1,36 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Button from 'react-bootstrap/Button';
 
-const CustDetail = ({customer}) => {
+// const CustDetail = ({customer}) => {
+  class CustDetail extends Component {
 
+componentWillUnmount() {
+    this.props.onSelectCallback('detailCustomer', '');
+  }
+
+render() {
   return (
     <div >
-    <h3>{customer.name}</h3>
+    <h3>{this.props.customer.name}</h3>
       <p>Address:
-        <br />{customer.address}
-        <br />{customer.city}, {customer.state} {customer.postal_code}</p>
+        <br />{this.props.customer.address}
+        <br />{this.props.customer.city}, {this.props.customer.state} {this.props.customer.postal_code}</p>
 
       <p>Phone: 
-        <br />{customer.phone}</p>
+        <br />{this.props.customer.phone}</p>
 
       <p>Registered At:
-        <br />{customer.registered_at}
+        <br />{this.props.customer.registered_at}
       </p> 
+      <p><Button variant="primary"
+          onClick={() => this.props.onSelectCallback('detailCustomer', '')}
+        >
+        Back
+        </Button>
+        </p>
     </div>
   )
-
+  }
 }
 
 export default CustDetail;
