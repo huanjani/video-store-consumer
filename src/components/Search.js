@@ -49,7 +49,7 @@ class Search extends Component {
       <div>
         <form className="text" onSubmit={this.onSubmit}>
 
-          <div>
+          <div className="search-box">
             <label className="text" htmlFor="text">Search for a movie: </label>
           </div>
 
@@ -64,7 +64,7 @@ class Search extends Component {
             </input>
           </div>
 
-      <p><Button variant="primary"
+        <p className="search-btn"><Button variant="primary"
           onClick={this.onSubmit}
         >
         Search

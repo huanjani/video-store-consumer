@@ -1,9 +1,23 @@
 .selection-box {
   background-color: lightgrey;
+
   border-radius: 5px;
   color: black;
   height: 160px;
   width: 300px;
   float: right;
   font-family: 'Bitter', serif;
+}
+
+.selection-box__content {
+  margin-top: 7%;
+}
+
+.selection-lft-btn {
+  margin-right: 5%;
+}
+
+
+.selection-rt-btn {
+  margin-left: 5%;
 }

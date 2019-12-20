@@ -1,3 +1,11 @@
 .text {
   font-family: 'Bitter', serif;
 }
+
+.search-box {
+  margin-top: 10px;
+}
+
+.search-btn {
+  margin-top: 10px; 
+}
