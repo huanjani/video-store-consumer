@@ -1,6 +1,17 @@
+h3 {
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Bitter', serif;
+}
+
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Bitter', serif;
+}
+
 .movie-card_lt {
   background-color: lightgrey;
-
   padding: 1em 0;
   margin: 0.5rem;
 
@@ -17,7 +28,6 @@
 
 .movie-card_dk {
   background-color: darkgrey;
-
   padding: 1em 0;
   margin: 0.5rem;
 
@@ -39,13 +49,18 @@
   flex-direction: column;
   justify-content: space-around;
 
-  text-align: left;
+  text-align: center;
   font-weight: 100;
   overflow: hidden;
-}
 
-h3 {
-  text-align: center;
+  padding: 1em 0;
+  margin: 0.5rem;
+  height: 400px;
+  max-width: 225px;
+  flex-basis: 18%;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  align-items: center;
 }
 
 img {

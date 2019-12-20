@@ -29,15 +29,16 @@ class Library extends Component {
     const getMovies = this.state.movies.map((movie) => {
       const cardColor = (movie.id % 2 === 0) ? 'movie-card_lt' : 'movie-card_dk'
         return (
+          <section className='movie-cards'>
 
           <div key={movie.id} className={cardColor}>
             <div className="movie-card__content">
               <div >
-                  <img src={movie.image_url} width={200} mode='fit' alt={`${movie.title} poster`}/>
+                  <img className='img' src={movie.image_url} width={200} mode='fit' alt={`${movie.title} poster`}/>
 
                 <h3>{movie.title}</h3>
-                <p className="movie-card__content_overview">{movie.overview}</p>
-                <p>Release Date: {movie.release_date}</p>
+                {/* <p className="movie-card__content_overview">{movie.overview}</p>
+                <p>Release Date: {movie.release_date}</p> */}
 
                 <p><button
                 onClick={() => this.props.onSelectCallback('currentMovie', movie)}
@@ -48,12 +49,14 @@ class Library extends Component {
               </div>
             </div>
           </div>
+          </section>
         )
       });
 
     return (
-      <section >
-      <div>
+      <section>
+        <h3>Rental Library</h3>
+      <div className='movies-container'>
         {getMovies}
       </div>
       </section>
