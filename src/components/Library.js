@@ -14,7 +14,11 @@ class Library extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${this.props.url}`)
+    axios.get(`${this.props.url}`, {
+      params: {
+        "sort": "title",
+      }
+    })
       .then((response) => {
         this.setState({ movies: response.data });
         console.log(this.state.movies)
@@ -29,7 +33,7 @@ class Library extends Component {
     const getMovies = this.state.movies.map((movie) => {
       const cardColor = (movie.id % 2 === 0) ? 'movie-card_lt' : 'movie-card_dk'
         return (
-          <section className='movie-cards'>
+          <section>
 
           <div key={movie.id} className={cardColor}>
             <div className="movie-card__content">
