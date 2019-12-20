@@ -63,6 +63,11 @@ h3 {
   align-items: center;
 }
 
+.movie-card__content_overview {
+  justify-content: normal;
+  width: 200px;
+}
+
 img {
   float: left;
   padding: 1.25em;

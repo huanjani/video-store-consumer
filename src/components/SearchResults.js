@@ -38,12 +38,12 @@ class SearchResults extends Component {
     return (
       <div key={i}
         className={listingColor}>
-        <div className="movie-card__content">
-          <div >
+        <div>
+          <div className="img">
             <img src={movie.image_url} width={200} mode='fit' alt={`${movie.title} poster`}/>
 
             <h3>{movie.title}</h3>
-            <p className="movie-card__content_overview">{movie.overview}</p>
+            <p>{movie.overview}</p>
             <p>Release Date: {movie.release_date}</p>
             <p>
 

@@ -10,6 +10,7 @@ class Library extends Component {
     this.state = {
       movies: [],
       error: '',
+      details: '',
     };
   }
 
@@ -28,6 +29,10 @@ class Library extends Component {
       });
   }
 
+  onClickDetails = (movie) => {
+    this.setState({ details: movie.id })
+  }
+
   render() {
 
     const getMovies = this.state.movies.map((movie) => {
@@ -38,25 +43,34 @@ class Library extends Component {
           <div key={movie.id} className={cardColor}>
             <div className="movie-card__content">
               <div >
-                  <img className='img' src={movie.image_url} width={200} mode='fit' alt={`${movie.title} poster`}/>
+                {
+                  (this.state.details === movie.id) &&
+                  (<div>
+                    <p className="movie-card__content_overview">{movie.overview}</p>
+                    <p>Release Date: {movie.release_date}</p>
+                  </div>)
+                }
+                {
+                  (this.state.details !== movie.id) &&
+                  (<div>
+                    <img className='img' src={movie.image_url} width={200} mode='fit' alt={`${movie.title} poster`}/>
+                    <h3>{movie.title}</h3>
 
-                <h3>{movie.title}</h3>
-                {/* <p className="movie-card__content_overview">{movie.overview}</p>
-                <p>Release Date: {movie.release_date}</p> */}
+                    <p><button
+                    onClick={() => this.props.onSelectCallback('currentMovie', movie)}
+                    >
+                    Select Movie
+                    </button>
+                    </p>
 
-                <p><button
-                onClick={() => this.props.onSelectCallback('currentMovie', movie)}
-                >
-                Select Movie
-                </button>
-                </p>
-
-                <p><button
-                onClick={() => this.props.onSelectCallback('currentMovie', movie)}
-                >
-                View Details
-                </button>
-                </p>
+                    <p><button
+                    onClick={() => this.onClickDetails(movie)}
+                    >
+                    View Details
+                    </button>
+                    </p>
+                </div>)
+              }
               </div>
             </div>
           </div>
