@@ -4,6 +4,9 @@ import './CustDetail.css';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
+// future improvements: enable check-in from this page
+// highlight whole row of overdue instead of just that box
+
 class CustDetail extends Component {
   constructor(props) {
     super();
@@ -67,7 +70,7 @@ render() {
 
         <p><span>Registered:</span>
           <br />{regDate}
-        </p> 
+        </p>
       </section>
       <h4>Checked-Out Movies:</h4>
       {(this.state.rentals.length > 0) ? (<section className="cust-detail__table">
