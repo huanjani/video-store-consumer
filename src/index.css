@@ -5,3 +5,11 @@ body {
   position: relative;
   min-height: 100vh;
 }
+
+.btn-primary {
+  background-color: rgb(228, 98, 120)!important;
+}
+
+.btn-primary:hover {
+  background-color: rgb(245, 144, 161) !important;
+}
