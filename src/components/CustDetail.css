@@ -1,0 +1,18 @@
+.cust-detail__table {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.cust-detail__info span {
+  font-weight: bold;
+}
+
+.cust-detail__table-overdue {
+  background-color: lightgoldenrodyellow;
+}
+
+h4 {
+  text-align: left;
+  margin-left: 5%;
+  margin-bottom: 10px;
+}
