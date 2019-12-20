@@ -50,6 +50,13 @@ class Library extends Component {
                 Select Movie
                 </button>
                 </p>
+
+                <p><button
+                onClick={() => this.props.onSelectCallback('currentMovie', movie)}
+                >
+                View Details
+                </button>
+                </p>
               </div>
             </div>
           </div>
