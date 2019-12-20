@@ -1,22 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Feedback.css';
-// import Delayed from '././react-delayed';
 
 const Feedback = (props) => {
   const styleName = 'text_' + props.background + '_background'
 
-    return(
-      // <Delayed mounted={true} unmountAfter={500}>
-        <p className={styleName}>
-          {props.message}
-        </p>
-      /* </Delayed> */
-    )
-  }
+  return(
+      <p className={styleName}>
+        {props.message}
+      </p>
+  )
+}
 
-  Feedback.propTypes = {
-    message: PropTypes.string.isRequired,
-  }
+Feedback.propTypes = {
+  message: PropTypes.string.isRequired,
+}
 
-  export default Feedback;
+export default Feedback;
