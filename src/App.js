@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ape from './ape.jpeg';
+import shelves from './videoStoreShelves.jpg'
 // import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
@@ -86,7 +87,7 @@ class App extends Component {
   render() {
     const BASE_URL = this.state.baseUrl;
     const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental} returnRentalCallback={this.onClickReturnRental}/> : <Feedback message={this.state.message} background='pink'/>
-    
+
 
 
     return (
@@ -116,6 +117,9 @@ class App extends Component {
           </Route>
           <Route path="/customers">
         { this.state.detailCustomer ? <CustDetail url={`${BASE_URL}rentals/cust_rentals`} customer={this.state.detailCustomer} onSelectCallback={this.onSelect}/> : <Customers url={`${BASE_URL}customers`} onSelectCallback={this.onSelect}/> }
+          </Route>
+          <Route path="">
+            <img src={shelves} alt="shelves background" className="shelves"/>
           </Route>
         </Switch>
       </div>
