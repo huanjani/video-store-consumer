@@ -2,7 +2,7 @@
   background-color: lightsteelblue;
 
   padding: 1em 0;
-  margin: 0.5rem;
+  margin: 5%;
 
   max-height: 500px;
   min-width: 225px;
@@ -10,16 +10,17 @@
 
   border-radius: 5px;
 
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  text-align: left;
 }
 
 .movie-card_two {
   background-color: slategrey;
 
   padding: 1em 0;
-  margin: 0.5rem;
+  margin: 5%;
 
   max-height: 500px;
   min-width: 225px;
@@ -27,11 +28,12 @@
 
   border-radius: 5px;
 
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  text-align: left;
 }
-/* 
+
 .movie-card__content {
   grid-column-start: 2;
 
@@ -42,7 +44,12 @@
   text-align: left;
   font-weight: 100;
   overflow: hidden;
-} */
+}
+
+.bogus {
+  margin-left: 5%;
+  margin-right: 5%;
+}
 
 h3 {
   text-align: center;
