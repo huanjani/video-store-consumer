@@ -48,6 +48,11 @@ class Library extends Component {
                   (<div>
                     <p className="movie-card__content_overview">{movie.overview}</p>
                     <p>Release Date: {movie.release_date}</p>
+                    <p><button
+                    onClick={() => this.setState({details: ''})}>
+                    Back
+                    </button>
+                    </p>
                   </div>)
                 }
                 {
