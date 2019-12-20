@@ -26,7 +26,7 @@ class SearchResults extends Component {
       this.setState({message: `${movie.title} successfully added to Rental Library!`, title: movie.title})
       })
     .catch((error) => {
-      this.setState({message: `${movie.title} was already in the Rental Library.`, title: movie.title})
+      this.setState({message: `${movie.title} is already in the Rental Library.`, title: movie.title})
     })
     )
   }
