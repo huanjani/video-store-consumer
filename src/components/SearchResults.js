@@ -39,21 +39,13 @@ class SearchResults extends Component {
     return (
       <div key={i}
         className={listingColor}>
-        <div>
+        <div className="bogus">
           <div className="img">
             <img src={movie.image_url} width={200} mode='fit' alt={`${movie.title} poster`}/>
 
             <h3>{movie.title}</h3>
             <p>{movie.overview}</p>
             <p>Release Date: {movie.release_date}</p>
-            {/* <p>
-
-              <button type="button" className="movie-select" onClick={() => this.searchResultToLibrary(movie)}>
-                Add to Rental Library
-              </button>
-                {this.state.title === movie.title && (<div>{alert}</div>)}
-            </p> */}
-
             <p><Button variant="primary"
           onClick={() => this.searchResultToLibrary(movie)}
         >
