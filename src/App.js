@@ -89,7 +89,7 @@ class App extends Component {
 
 
     return (
-
+      <main>
       <Router>
       <div className="App">
       <nav>
@@ -120,6 +120,8 @@ class App extends Component {
       </div>
       </Router>
 
+      <footer>&copy; 2019 Janice Huang and Hallie Johnson</footer>
+      </main>
     );
   }
 }
