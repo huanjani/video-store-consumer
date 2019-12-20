@@ -100,14 +100,12 @@ class App extends Component {
           <img src={ape} className="App-logo" alt="logo" />
           <h1 className="App-title">Apey Eye Video Store</h1>
         </header>
-
           <ul>
             <li><Link to="/search">Search</Link></li>
             <li><Link to="/library">Library</Link></li>
             <li><Link to="/customers">Customers</Link></li>
           </ul>
         </nav>
-
         <Switch>
           <Route path="/search">
             <Search url={`${BASE_URL}movies`} />
@@ -124,7 +122,6 @@ class App extends Component {
         </Switch>
       </div>
       </Router>
-
       <footer>&copy; 2019 Janice Huang and Hallie Johnson</footer>
       </main>
     );

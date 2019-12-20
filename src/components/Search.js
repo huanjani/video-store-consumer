@@ -37,6 +37,7 @@ class Search extends Component {
         this.setState({ error: errors.title });
         console.log(errors.title)
       });
+      // Future improvement: use Feedback to display 'No Search Results' message
 
       this.setState({
         query: '',
