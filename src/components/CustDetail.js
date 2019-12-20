@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './CustDetail.css';
-import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
 class CustDetail extends Component {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
 import './SearchResults.css';
 import Feedback from './Feedback'
 
@@ -45,13 +46,21 @@ class SearchResults extends Component {
             <h3>{movie.title}</h3>
             <p>{movie.overview}</p>
             <p>Release Date: {movie.release_date}</p>
-            <p>
+            {/* <p>
 
               <button type="button" className="movie-select" onClick={() => this.searchResultToLibrary(movie)}>
                 Add to Rental Library
               </button>
                 {this.state.title === movie.title && (<div>{alert}</div>)}
-            </p>
+            </p> */}
+
+            <p><Button variant="primary"
+          onClick={() => this.searchResultToLibrary(movie)}
+        >
+        Add to Rental Library
+        </Button>
+        {this.state.title === movie.title && (<div>{alert}</div>)}
+        </p>
           </div>
         </div>
       </div>
