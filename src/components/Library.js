@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
 import './Library.css'
 
 class Library extends Component {
@@ -48,10 +49,10 @@ class Library extends Component {
                   (<div>
                     <p className="movie-card__content_overview">{movie.overview}</p>
                     <p>Release Date: {movie.release_date}</p>
-                    <p><button
+                    <p><Button variant="primary"
                     onClick={() => this.setState({details: ''})}>
                     Back
-                    </button>
+                    </Button>
                     </p>
                   </div>)
                 }
@@ -61,18 +62,18 @@ class Library extends Component {
                     <img className='img' src={movie.image_url} width={200} mode='fit' alt={`${movie.title} poster`}/>
                     <h3>{movie.title}</h3>
 
-                    <p><button
+                    <p><Button variant="primary"
                     onClick={() => this.props.onSelectCallback('currentMovie', movie)}
                     >
                     Select Movie
-                    </button>
+                    </Button>
                     </p>
 
-                    <p><button
+                    <p><Button variant="primary"
                     onClick={() => this.onClickDetails(movie)}
                     >
                     View Details
-                    </button>
+                    </Button>
                     </p>
                 </div>)
               }

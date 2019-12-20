@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
 import SearchResults from './SearchResults'
 import './Search.css'
 
@@ -48,26 +49,27 @@ class Search extends Component {
       <div>
         <form className="text" onSubmit={this.onSubmit}>
 
-          <div>
+          <div className="search-box">
             <label className="text" htmlFor="text">Search for a movie: </label>
           </div>
 
           <div>
-            <textarea className="text"
+            <input
+              type="text"
+              className="text"
               name="query"
               onChange={this.onInputChange}
               value={this.state.query}
             >
-            </textarea>
+            </input>
           </div>
 
-          <input
-            className="new-card-form__form-button"
-            type="submit"
-            name="submit"
-            value="Search"
-            onClick={this.onSubmit}
-          />
+        <p className="search-btn"><Button variant="primary"
+          onClick={this.onSubmit}
+        >
+        Search
+        </Button>
+        </p>
         </form>
         <SearchResults movieData={this.state.movies} url={this.props.url}/>
       </div>
