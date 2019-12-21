@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import './Selection.css';
 
-const Selection = ({customer, movie, addRentalCallback, returnRentalCallback}) => {
+class Selection extends Component {
+
+  componentWillUnmount() {
+    this.props.clearMsg('message', '')
+  }
+
+  render() {
+    const {customer, movie, addRentalCallback, returnRentalCallback} = this.props;
 
     return (
       <div className="selection-box">
@@ -13,8 +20,9 @@ const Selection = ({customer, movie, addRentalCallback, returnRentalCallback}) =
           { (customer && movie) ? (<div><Button variant="primary" className="selection-lft-btn" onClick={() => {addRentalCallback(movie, customer)}} >Check Out</Button> <Button variant="primary" className="selection-rt-btn" onClick={() => {returnRentalCallback(movie, customer)}} >Return</Button></div>): ''}
         </div>
       </div>
-    );
+    );  
   }
+}
 
   Selection.propTypes = {
     movie: PropTypes.oneOfType([
@@ -26,5 +34,6 @@ const Selection = ({customer, movie, addRentalCallback, returnRentalCallback}) =
       PropTypes.string,
     ]),
   }
+
 
 export default Selection;
