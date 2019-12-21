@@ -14,6 +14,7 @@ h3 {
 .movie-card__content {
   display: flex;
   padding: 0;
+  height: auto;
   font-weight: normal;
   font-family: 'Bitter', serif;
 }
