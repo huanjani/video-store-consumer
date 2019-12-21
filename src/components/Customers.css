@@ -1,4 +1,3 @@
-
 h3 {
   margin-top: 20px;
   font-family: 'Bitter', serif;
@@ -29,8 +28,6 @@ h3 {
   font-family: 'Bitter', serif;
 }
 
-/* Previous Page */
-
 .previous-button span {
   cursor: pointer;
   display: inline-block;
@@ -56,8 +53,6 @@ h3 {
   left: 0;
 }
 
-
-/* Next Page */
 .next-button span {
   cursor: pointer;
   display: inline-block;

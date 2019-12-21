@@ -72,5 +72,4 @@ SearchResults.propTypes = {
   movieData: PropTypes.array,
 }
 
-
 export default SearchResults;

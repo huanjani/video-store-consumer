@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ape from './ape.jpeg';
 import shelves from './videoStoreShelves.jpg'
-// import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
 import Search from './components/Search';
@@ -47,7 +46,6 @@ class App extends Component {
     }
 
     const rental_due = addDays(today, 7)
-
     const rental = {"customer_id": customer.id,
     "title": movie.title,
     "due_date": rental_due }
@@ -87,8 +85,6 @@ class App extends Component {
   render() {
     const BASE_URL = this.state.baseUrl;
     const selectBox = (this.state.currentCustomer || this.state.currentMovie) ? <Selection customer={this.state.currentCustomer} movie={this.state.currentMovie} addRentalCallback={this.onClickAddRental} returnRentalCallback={this.onClickReturnRental} clearMsg={this.onSelect}/> : <Feedback message={this.state.message} background='pink'/>
-
-
 
     return (
       <main>

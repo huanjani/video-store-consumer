@@ -7,7 +7,6 @@ import './Library.css'
 class Library extends Component {
   constructor(props) {
     super();
-
     this.state = {
       movies: [],
       error: '',
@@ -35,12 +34,10 @@ class Library extends Component {
   }
 
   render() {
-
     const getMovies = this.state.movies.map((movie) => {
       const cardColor = (movie.id % 2 === 0) ? 'movie-card_lt' : 'movie-card_dk'
         return (
           <section>
-
           <div key={movie.id} className={cardColor}>
             <div className="movie-card__content">
               <div >

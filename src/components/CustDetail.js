@@ -4,13 +4,12 @@ import './CustDetail.css';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-// future improvements: enable check-in from this page
+// future improvements: enable check-in from this page,
 // highlight whole row of overdue instead of just that box
 
 class CustDetail extends Component {
   constructor(props) {
     super();
-
     this.state = {
       rentals: [],
       error: '',
@@ -33,14 +32,13 @@ class CustDetail extends Component {
       });
   }
 
-componentWillUnmount() {
-    this.props.onSelectCallback('detailCustomer', '');
-  }
+  componentWillUnmount() {
+      this.props.onSelectCallback('detailCustomer', '');
+    }
 
-render() {
-  const today = new Date()
-  const regDate = new Date(this.props.customer.registered_at).toUTCString().slice(0,16)
-
+  render() {
+    const today = new Date()
+    const regDate = new Date(this.props.customer.registered_at).toUTCString().slice(0,16)
   const getRentals = this.state.rentals.map((rental, i) => {
     let dueClass = ''
       if ((new Date(rental.due_date)) < today) {
@@ -56,7 +54,6 @@ render() {
     </tr>
     )
   })
-
 
   return (
     <div >

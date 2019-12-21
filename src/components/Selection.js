@@ -5,10 +5,6 @@ import './Selection.css';
 
 class Selection extends Component {
 
-  componentWillUnmount() {
-    this.props.clearMsg('message', '')
-  }
-
   render() {
     const {customer, movie, addRentalCallback, returnRentalCallback} = this.props;
 
@@ -20,7 +16,7 @@ class Selection extends Component {
           { (customer && movie) ? (<div><Button variant="primary" className="selection-lft-btn" onClick={() => {addRentalCallback(movie, customer)}} >Check Out</Button> <Button variant="primary" className="selection-rt-btn" onClick={() => {returnRentalCallback(movie, customer)}} >Return</Button></div>): ''}
         </div>
       </div>
-    );  
+    );
   }
 }
 
@@ -34,6 +30,5 @@ class Selection extends Component {
       PropTypes.string,
     ]),
   }
-
 
 export default Selection;
