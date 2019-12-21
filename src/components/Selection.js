@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import './Selection.css';
 
-class Selection extends Component {
-
-  render() {
-    const {customer, movie, addRentalCallback, returnRentalCallback} = this.props;
+const Selection = ({customer, movie, addRentalCallback, returnRentalCallback}) => {
 
     return (
       <div className="selection-box">
@@ -18,7 +15,7 @@ class Selection extends Component {
       </div>
     );
   }
-}
+
 
   Selection.propTypes = {
     movie: PropTypes.oneOfType([
